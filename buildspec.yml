@@ -36,11 +36,12 @@ phases:
       - ls -al $CODEBUILD_SRC_DIR_contrastgolangagent
       - chmod u+x $CODEBUILD_SRC_DIR_contrastgolangagent/contrast-go
       - chmod u+x $CODEBUILD_SRC_DIR_contrastgolangagent/contrast-service
+      - export PATH=$PATH:$CODEBUILD_SRC_DIR_contrastgolangagent
       # - command
   build:
     commands:
       - ./scripts/docker-build.sh photoprism $CODEBUILD_BUILD_NUMBER
-      # - command
+      - ./scripts/contrast-docker-build.sh photoprism-contrast $CODEBUILD_BUILD_NUMBER
 #   post_build:
 #     commands:
       # - command

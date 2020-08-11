@@ -14,6 +14,7 @@ all: dep build
 dep: dep-tensorflow dep-js dep-go
 build: generate build-js build-go
 install: install-bin install-assets
+install-contrast: install-bin-contrast install-assets
 test: test-js test-go
 test-go: reset-test-db run-test-go
 test-short: reset-test-db run-test-short
@@ -50,6 +51,8 @@ generate:
 	go fmt ./pkg/... ./internal/...
 install-bin:
 	scripts/build.sh prod ~/.local/bin/$(BINARY_NAME)
+install-bin-contrast:
+    scripts/contrast-build.sh prod ~/.local/bin/$(BINARY_NAME)
 install-assets:
 	$(info Installing assets)
 	mkdir -p ~/.photoprism/storage/settings
