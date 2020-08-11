@@ -52,7 +52,7 @@ generate:
 install-bin:
 	scripts/build.sh prod ~/.local/bin/$(BINARY_NAME)
 install-bin-contrast:
-    scripts/contrast-build.sh prod ~/.local/bin/$(BINARY_NAME)
+	scripts/contrast-build.sh prod ~/.local/bin/$(BINARY_NAME)
 install-assets:
 	$(info Installing assets)
 	mkdir -p ~/.photoprism/storage/settings
@@ -159,6 +159,8 @@ docker-photoprism:
 docker-photoprism-arm64:
 	scripts/docker-build.sh photoprism-arm64 $(DOCKER_TAG)
 	scripts/docker-push.sh photoprism-arm64 $(DOCKER_TAG)
+docker-photoprism-contrast:
+	scripts/contrast-docker-build.sh photoprism $(DOCKER_TAG)
 docker-demo:
 	scripts/docker-build.sh demo $(DOCKER_TAG)
 	scripts/docker-push.sh demo $(DOCKER_TAG)

@@ -4,6 +4,8 @@ FROM photoprism/development:20200721 as build
 WORKDIR "/go/src/github.com/photoprism/photoprism"
 COPY . .
 
+RUN cp ./contrast-go $GOPATH/bin/contrast-go
+
 # Build PhotoPrism
 RUN make dep build-js install-contrast
 

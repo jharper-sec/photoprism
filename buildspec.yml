@@ -36,7 +36,7 @@ phases:
       - ls -al $CODEBUILD_SRC_DIR_contrastgolangagent
       - chmod u+x $CODEBUILD_SRC_DIR_contrastgolangagent/contrast-go
       - chmod u+x $CODEBUILD_SRC_DIR_contrastgolangagent/contrast-service
-      - export PATH=$PATH:$CODEBUILD_SRC_DIR_contrastgolangagent
+      - cp $CODEBUILD_SRC_DIR_contrastgolangagent/contrast-go $CODEBUILD_SRC_DIR/contrast-go
       # - command
   build:
     commands:
